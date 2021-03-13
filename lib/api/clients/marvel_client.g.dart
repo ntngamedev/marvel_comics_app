@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'marvel_api.dart';
+part of 'marvel_client.dart';
 
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
-class _MarvelAPI implements MarvelAPI {
-  _MarvelAPI(this._dio, {this.baseUrl}) {
+class _MarvelClient implements MarvelClient {
+  _MarvelClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
   }
 

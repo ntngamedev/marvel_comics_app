@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marvel_comics_app/app/ui/home/home_store.dart';
+import 'package:marvel_comics_app/app/ui/home/home_presenter.dart';
 import 'package:rx_notifier/rx_notifier.dart';
+
+import '../app_state.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key}) : super(key: key);
@@ -10,7 +11,7 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeViewState extends ModularState<HomeView, HomeStore> {
+class _HomeViewState extends AppState<HomeView, HomePresenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +22,12 @@ class _HomeViewState extends ModularState<HomeView, HomeStore> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RxBuilder(builder: (_) => Text("${store.counter}"))
+            RxBuilder(builder: (_) => Text("${presenter.counter}"))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: store.increment,
+        onPressed: presenter.increment,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),

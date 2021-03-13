@@ -6,3 +6,9 @@ import 'package:marvel_comics_app/app/app_widget.dart';
 void main() {
   runApp(ModularApp(module: AppModule(), child: AppWidget()));
 }
+
+bool get inDebugMode {
+  bool inDebugMode = false;
+  assert(inDebugMode = true);
+  return inDebugMode;
+}

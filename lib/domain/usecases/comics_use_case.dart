@@ -6,7 +6,7 @@ class ComicsUseCase {
 
   ComicsUseCase(this._repository);
 
-  Future<Comic> getComics() {
+  Future<List<Comic>> getComics() {
     return _repository.getComics();
   }
 }

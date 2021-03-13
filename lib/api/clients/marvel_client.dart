@@ -5,11 +5,14 @@ import 'package:dio/dio.dart';
 import 'package:marvel_comics_app/api/contracts/response/comics_response.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'marvel_api.g.dart';
+import '../../main.dart';
+
+part 'marvel_client.g.dart';
 
 @RestApi()
-abstract class MarvelAPI {
-  factory MarvelAPI(Dio dio, {String baseUrl, String privateKey, String publicKey}) {
+abstract class MarvelClient {
+  factory MarvelClient(Dio dio,
+      {String baseUrl, String privateKey, String publicKey}) {
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options) {
         final timestamp = DateTime.now().millisecondsSinceEpoch;
@@ -19,7 +22,11 @@ abstract class MarvelAPI {
       },
     ));
 
-    return _MarvelAPI(dio, baseUrl: baseUrl);
+    if (inDebugMode) {
+      dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
+    }
+
+    return _MarvelClient(dio, baseUrl: baseUrl);
   }
 
   @GET("/comics?orderBy=-focDate")

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:marvel_comics_app/domain/entities/comic.dart';
 
 part 'comics_response.g.dart';
 
