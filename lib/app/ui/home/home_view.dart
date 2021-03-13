@@ -4,7 +4,7 @@ import 'package:marvel_comics_app/app/ui/home/home_store.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({Key? key}) : super(key: key);
+  HomeView({Key key}) : super(key: key);
 
   @override
   _HomeViewState createState() => _HomeViewState();

@@ -5,7 +5,7 @@ class HomeModule extends Module {
 
   @override
   List<Bind<Object>> get binds => [
-    Bind((_) => HomeStore())
+    Bind((i) => HomeStore(i()))
   ];
 
   @override
