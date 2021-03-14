@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:marvel_comics_app/app/ui/app_presenter.dart';
+import 'package:marvel_comics_app/app/ui/common/app_presenter.dart';
 
 abstract class AppState<TWidget extends StatefulWidget,
     TBind extends AppPresenter> extends State<TWidget> {

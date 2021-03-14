@@ -1,6 +1,9 @@
-import 'package:marvel_comics_app/app/ui/app_presenter.dart';
+import 'package:marvel_comics_app/app/ui/common/app_presenter.dart';
+import 'package:marvel_comics_app/app/ui/home/models/comic_ui.dart';
+import 'package:marvel_comics_app/domain/entities/comic.dart';
 import 'package:marvel_comics_app/domain/usecases/comics_use_case.dart';
 import 'package:rx_notifier/rx_notifier.dart';
+import 'package:marvel_comics_app/app/mappers/comics_mapper.dart';
 
 class HomePresenter extends AppPresenter {
   final ComicsUseCase _useCase;
@@ -9,18 +12,19 @@ class HomePresenter extends AppPresenter {
     this._useCase,
   );
 
-  @override
-  void init() async {
-    print("Init");
+  final isLoadingComics = RxNotifier<bool>(false);
+  final comicsList = RxNotifier<List<ComicUI>>([]);
 
-    final result = await _useCase.getComics();
-    print(result.length);
+  @override
+  void init() {
+    loadComics();
   }
 
-  final _counter = RxNotifier<int>(0);
-  get counter => _counter.value;
+  loadComics() async {
+    comicsList.value.clear();
+    isLoadingComics.value = true;
 
-  increment() {
-    _counter.value++;
+    comicsList.value.addAll((await _useCase.getComics()).map((it) => it.toUI()).toList());
+    isLoadingComics.value = false;
   }
 }

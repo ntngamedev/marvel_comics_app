@@ -29,6 +29,6 @@ abstract class MarvelClient {
     return _MarvelClient(dio, baseUrl: baseUrl);
   }
 
-  @GET("/comics?orderBy=-focDate")
+  @GET("/comics?format=Comic&orderBy=-focDate")
   Future<ComicsResponse> getComics();
 }

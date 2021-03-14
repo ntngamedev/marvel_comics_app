@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_comics_app/api/clients/marvel_client.dart';
-import 'package:marvel_comics_app/app/app_constants.dart';
+import 'package:marvel_comics_app/app/utils/app_constants.dart';
 import 'package:marvel_comics_app/app/ui/home/home_module.dart';
 
 class AppModule extends Module {

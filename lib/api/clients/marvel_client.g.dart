@@ -21,7 +21,7 @@ class _MarvelClient implements MarvelClient {
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.request<Map<String, dynamic>>(
-        '/comics?orderBy=-focDate',
+        '/comics?format=Comic&orderBy=-focDate',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
