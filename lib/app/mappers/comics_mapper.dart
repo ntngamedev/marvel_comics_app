@@ -11,8 +11,7 @@ extension ComicsResponseMapper on ComicsResponse {
   )).toList();
 }
 
-extension ComicsMapper on Comic {
-
+extension ComicMapper on Comic {
   ComicUI toUI() => ComicUI(
     id: this.id,
     title: this.title,

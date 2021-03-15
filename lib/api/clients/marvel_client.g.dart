@@ -21,7 +21,7 @@ class _MarvelClient implements MarvelClient {
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.request<Map<String, dynamic>>(
-        '/comics?format=Comic&orderBy=-focDate',
+        '/comics?limit=5&format=Comic&orderBy=-focDate',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -30,6 +30,24 @@ class _MarvelClient implements MarvelClient {
             baseUrl: baseUrl),
         data: _data);
     final value = ComicsResponse.fromJson(_result.data);
+    return value;
+  }
+
+  @override
+  Future<SeriesResponse> getSeries() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.request<Map<String, dynamic>>(
+        '/series?limit=10&orderBy=-modified&seriesType=limited',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = SeriesResponse.fromJson(_result.data);
     return value;
   }
 }

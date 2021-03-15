@@ -23,4 +23,6 @@ class AppDimens {
   static const materialBaselineGrid12x = 96.0;
   static const materialBaselineGrid13x = 104.0;
   static const materialBaselineGrid14x = 112.0;
+  static const materialBaselineGrid15x = 120.0;
+  static const materialBaselineGrid16x = 128.0;
 }

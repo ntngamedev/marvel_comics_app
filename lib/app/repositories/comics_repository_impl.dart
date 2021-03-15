@@ -9,8 +9,5 @@ class ComicsRepositoryImpl implements ComicsRepository {
   ComicsRepositoryImpl(this._marvelClient);
 
   @override
-  Future<List<Comic>> getComics() async {
-    final result = await _marvelClient.getComics();
-    return result.toDomain();
-  }
+  Future<List<Comic>> getComics() async => (await _marvelClient.getComics()).toDomain();
 }

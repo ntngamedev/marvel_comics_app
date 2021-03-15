@@ -1,8 +1,8 @@
 class Comic {
-  int id;
-  String title;
-  String thumbnailURL;
-  double price;
+  final int id;
+  final String title;
+  final String thumbnailURL;
+  final double price;
 
   Comic({
     this.id,

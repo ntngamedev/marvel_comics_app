@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:marvel_comics_app/api/contracts/response/comics_response.dart';
+import 'package:marvel_comics_app/api/contracts/response/series_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../main.dart';
@@ -29,6 +30,9 @@ abstract class MarvelClient {
     return _MarvelClient(dio, baseUrl: baseUrl);
   }
 
-  @GET("/comics?format=Comic&orderBy=-focDate")
+  @GET("/comics?limit=5&format=Comic&orderBy=-focDate")
   Future<ComicsResponse> getComics();
+
+  @GET("/series?limit=10&orderBy=-modified&seriesType=limited")
+  Future<SeriesResponse> getSeries();
 }

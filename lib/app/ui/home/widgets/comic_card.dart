@@ -68,8 +68,9 @@ class ComicCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-            color: AppColors.primary,
-            blurRadius: AppDimens.materialBaselineGrid0_5x)
+          color: AppColors.primary,
+          blurRadius: AppDimens.materialBaselineGrid0_5x,
+        )
       ]),
     );
   }
